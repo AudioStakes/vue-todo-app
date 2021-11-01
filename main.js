@@ -6,7 +6,7 @@ new window.Vue({
     todos: [],
     newContent: '',
     editContent: '',
-    editIndex: -1
+    editIndex: null
   },
   mounted () {
     if (STORAGE.getItem(STORAGE_KEY)) {
@@ -39,7 +39,7 @@ new window.Vue({
       this.editContent = this.todos[i].content
     },
     resetEditing () {
-      this.editIndex = -1
+      this.editIndex = null
       this.editContent = ''
     },
     update (i) {
