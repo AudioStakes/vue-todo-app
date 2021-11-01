@@ -4,9 +4,10 @@ const STORAGE = window.localStorage
 new window.Vue({
   data: {
     todos: [],
+    newId: null,
     newContent: '',
-    editContent: '',
-    editIndex: null
+    editId: null,
+    editContent: ''
   },
   mounted () {
     if (STORAGE.getItem(STORAGE_KEY)) {
@@ -17,43 +18,46 @@ new window.Vue({
       }
     } else {
       this.todos = [
-        { content: '1つ目のTODO', isDone: false },
-        { content: '2つ目のTODO', isDone: false },
-        { content: '3つ目のTODO', isDone: false }
+        { id: 1, content: '1つ目のTODO', isDone: false },
+        { id: 2, content: '2つ目のTODO', isDone: false },
+        { id: 3, content: '3つ目のTODO', isDone: false }
       ]
     }
+    this.newId = this.todos.length ? Math.max(...this.todos.map(todo => todo.id)) + 1 : 1
   },
   methods: {
     add () {
       if (!this.newContent) { return }
 
       this.todos.push({
+        id: this.newId,
         content: this.newContent,
         isDone: false
       })
 
+      this.newId++
       this.newContent = ''
     },
-    edit (i) {
-      this.editIndex = i
-      this.editContent = this.todos[i].content
+    edit (todo) {
+      this.editId = todo.id
+      this.editContent = todo.content
     },
     resetEditing () {
-      this.editIndex = null
+      this.editId = null
       this.editContent = ''
     },
-    update (i) {
+    update (todo) {
       if (!this.editContent) { return }
 
-      this.todos[i].content = this.editContent
+      todo.content = this.editContent
 
       this.resetEditing()
     },
-    remove (i) {
-      this.todos.splice(i, 1)
+    remove (todo) {
+      this.todos.splice(this.todos.indexOf(todo), 1)
     },
-    toggleDoneState (i) {
-      this.todos[i].isDone = !this.todos[i].isDone
+    toggleDoneState (todo) {
+      todo.isDone = !todo.isDone
     }
   },
   watch: {

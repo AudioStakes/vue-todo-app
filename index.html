@@ -13,18 +13,18 @@
       <button @click="add" class="add">登録</button>
 
       <ul>
-        <li v-for="(todo, i) in todos">
-          <div v-if="i === editIndex" class="todo">
+        <li v-for="todo in todos" :key="todo.id">
+          <div v-if="todo.id === editId" class="todo">
             <input v-model="editContent" type="text" class="edit" />
             <button @click="resetEditing" class="cancel">キャンセル</button>
-            <button @click="update(i)" class="update">更新</button>
+            <button @click="update(todo)" class="update">更新</button>
           </div>
 
           <div v-else class="todo">
-            <input type="checkbox" :checked="todo.isDone" @click="toggleDoneState(i)" />
+            <input type="checkbox" :checked="todo.isDone" @click="toggleDoneState(todo)" />
             <span class="content" :class="{ done: todo.isDone }">{{ todo.content }}</span>
-            <button @click="edit(i)" class="edit">編集</button>
-            <button @click="remove(i)" class="remove">削除</button>
+            <button @click="edit(todo)" class="edit">編集</button>
+            <button @click="remove(todo)" class="remove">削除</button>
           </div>
         </li>
       </ul>
