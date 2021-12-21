@@ -1,0 +1,263 @@
+/*
+////////////////////////////////////////
+reset.css を読み込んで全てのスタイルをなくす
+////////////////////////////////////////
+*/
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*
+////////////////////////////////////////
+reset.css では足りない初期化を追加
+////////////////////////////////////////
+*/
+
+/* 全てに box-sizing: border-box; を適用 */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/* 画像に関する初期設定 */
+img {
+  /* 大きい画像がはみ出さないように */
+  max-width: 100%;
+  /* 画像周りの無駄なスペースができないように */
+  vertical-align: bottom;
+}
+
+[data-whatinput="mouse"] *:focus,
+[data-whatinput="touch"] *:focus {
+  outline: none;
+}
+
+/*
+////////////////////////////////////////
+以下にCSSを設定
+////////////////////////////////////////
+*/
+
+h1 {
+  line-height: 1.4;
+  font-size: 50px;
+  font-weight: 800;
+  margin: 0.67em 0;
+  text-align: center;
+}
+
+input[type='text'] {
+  margin: 5px 5px 5px 5px;
+  padding: 0.375rem 0.75rem;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  line-height: 1.7;
+  width: 100%;
+}
+
+input[type='text'].edit {
+  width: 70%;
+}
+
+input[type='checkbox'] {
+  width: 10%;
+}
+
+button {
+  display: inline-block;
+  margin: 5px 5px 5px 5px;
+  line-height: 2;
+  border-radius: 8px;
+  font-weight: 300;
+  box-shadow: 0 2px #666;
+  width: 20%;
+}
+
+button.add,
+button.update {
+  color: #fff;
+  border-color: #0d6dfd80;
+  background-color: #0d6efd;
+}
+
+button.add {
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+button.edit,
+button.cancel {
+  color: #4d4d4d;
+  border-color: gray;
+  background-color: white;
+}
+
+button.remove {
+  color: #fff;
+  border-color: #dc35468c;
+  background-color: #dc3545;
+}
+
+button:hover {
+  filter: brightness(90%);
+}
+
+.container {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.todo {
+  font-size: 25px;
+  line-height: 1.8;
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  width: 60%;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.done {
+  text-decoration: line-through;
+}
+
+[v-cloak] {
+  display: none;
+}
